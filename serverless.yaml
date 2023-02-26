@@ -1,0 +1,25 @@
+service: fish-cam
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: python3.8
+  region: us-east-2
+  lambdaHashingVersion: '20201221'
+  iam:
+    role:
+      managedPolicies:
+        - 'arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess'
+        - 'arn:aws:iam::aws:policy/AWSLambda_FullAccess'
+        - 'arn:aws:iam::aws:policy/AWSIoTEventsFullAccess'
+
+functions:
+  fish-cam-api-create:
+    name: dev-fish-cam
+    handler: index.endpoint
+    events:
+      - http:
+          path: api/fish-cam
+          method: post
+          cors: true
+          private: false

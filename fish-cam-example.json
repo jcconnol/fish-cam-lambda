@@ -1,0 +1,5 @@
+{
+    "image": "base64 encoded string of the image",
+    "temp": "145", //in farenheight
+    "water_level": "10" //percent level for the sensor
+}
