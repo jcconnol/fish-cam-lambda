@@ -1,0 +1,5 @@
+{
+    "image": "base64 encoded string of the image",
+    "temp_f": "145",
+    "water_level_perc": "10"
+}

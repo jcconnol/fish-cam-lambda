@@ -3,35 +3,53 @@ import datetime
 from responses import response
 import boto3
 
-# send message to home/fish-cam iot core topic
-# then retrieve data from s3 bucket: fish-cam
 client = boto3.client('iot-data', region_name='us-east-2')
+BUCKET_NAME = "fish_cam"
+FISH_DATA_JSON_FILE_NAME = "fish_data.json"
+FISH_DATA_JPG_IMAGE_NAME = "fish_pic.jpg"
+
 
 def endpoint(event, context):
     
-    print(event)
-    print(event["bucket_path"])
-    
-    if event["bucket_path"] != "fish-cam":
-        return response(400, "please provide required parameter")
-    
     try:
-        rpi_response = client.publish(
-            topic='fish-cam',
+        response = client.publish(
+            topic='fish_data',
             qos=0,
-            payload=json.dumps({"foo":"bar"})
+            payload=b"{\"message\": \"invoke fish cam!\"}"
         )
-        
         print(response)
+        print("got here")
         
-        bucketname = "fish-cam"
+        bucket = "fish-cam"
         filename = "fish_data.json"
         
-        s3 = boto3.client('s3')
-        s3_response = s3.get_object(bucketname, filename)
-        fish_cam_content = s3_response['Body'].read().decode('utf-8')
+        unsigned_url = boto3.client('s3').generate_presigned_url(
+        ClientMethod='get_object', 
+        Params={'Bucket': BUCKET_NAME, 'Key': FISH_DATA_JPG_IMAGE_NAME}, ExpiresIn=3600)
+            
+        s3 = boto3.resource('s3')
+        fish_cam_content = s3.Object(bucket, filename)
+        fish_cam_json = fish_cam_content.get()['Body'].read().decode('utf-8') 
+        
+        fish_cam_json["s3_url"] = unsigned_url
 
-        return response(200, fish_cam_content)
+        return {
+            "statusCode": 200,
+            "headers": {
+                "Access-Control-Allow-Origin": "*",
+                "Content-Type": 'application/json',
+            },
+            "body": json.dumps(fish_cam_json),
+            "isBase64Encoded": False
+        }
     except Exception as e:
         print(e)
-        return response(500, e)
+        return {
+            "statusCode": 500,
+            "headers": {
+                "Access-Control-Allow-Origin": "*",
+                "Content-Type": 'application/json',
+            },
+            "body": json.dumps(e),
+            "isBase64Encoded": False
+        }
