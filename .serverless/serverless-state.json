@@ -192,7 +192,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/fish-cam/dev/1678841556719-2023-03-15T00:52:36.719Z/fish-cam.zip"
+                "S3Key": "serverless/fish-cam/dev/1678845262698-2023-03-15T01:54:22.698Z/fish-cam.zip"
               },
               "Handler": "index.endpoint",
               "Runtime": "python3.8",
@@ -210,14 +210,14 @@
               "FishDashcamDashapiDashcreateLogGroup"
             ]
           },
-          "FishDashcamDashapiDashcreateLambdaVersionFxYZU45e0IAOuwKvLBQHxHoR87oKqiJrwWUVN3xNo": {
+          "FishDashcamDashapiDashcreateLambdaVersionN7PMWlWZzbdbqWgdErh3fumASWBVmo3UCqGML48czNc": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "FishDashcamDashapiDashcreateLambdaFunction"
               },
-              "CodeSha256": "yuKcXS7Kzs/2pTDuJJ815dilk9Plo2vx5J2XJxqZA5g="
+              "CodeSha256": "aXZFYX0TLGs5GKzdt+ZuQobXjj40u1heyfxXa/6rDQ4="
             }
           },
           "ApiGatewayRestApi": {
@@ -350,7 +350,7 @@
               "FishDashcamDashapiDashcreateLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1678841555441": {
+          "ApiGatewayDeployment1678845261659": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -413,7 +413,7 @@
           "FishDashcamDashapiDashcreateLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "FishDashcamDashapiDashcreateLambdaVersionFxYZU45e0IAOuwKvLBQHxHoR87oKqiJrwWUVN3xNo"
+              "Ref": "FishDashcamDashapiDashcreateLambdaVersionN7PMWlWZzbdbqWgdErh3fumASWBVmo3UCqGML48czNc"
             },
             "Export": {
               "Name": "sls-fish-cam-dev-FishDashcamDashapiDashcreateLambdaFunctionQualifiedArn"
@@ -567,7 +567,7 @@
         "timeout": 6,
         "runtime": "python3.8",
         "vpc": {},
-        "versionLogicalId": "FishDashcamDashapiDashcreateLambdaVersionFxYZU45e0IAOuwKvLBQHxHoR87oKqiJrwWUVN3xNo"
+        "versionLogicalId": "FishDashcamDashapiDashcreateLambdaVersionN7PMWlWZzbdbqWgdErh3fumASWBVmo3UCqGML48czNc"
       }
     },
     "configValidationMode": "warn",
@@ -589,7 +589,7 @@
     "artifact": "C:\\Users\\jccon\\Desktop\\software_eng\\fish-cam-lambda\\.serverless\\fish-cam.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/fish-cam/dev/1678841556719-2023-03-15T00:52:36.719Z",
+    "artifactDirectoryName": "serverless/fish-cam/dev/1678845262698-2023-03-15T01:54:22.698Z",
     "artifact": "fish-cam.zip"
   }
 }

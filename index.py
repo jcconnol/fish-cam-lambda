@@ -13,7 +13,7 @@ def endpoint(event, context):
     
     try:
         response = client.publish(
-            topic='fish_data',
+            topic='fish_cam',
             qos=0,
             payload=b"{\"message\": \"invoke fish cam!\"}"
         )
