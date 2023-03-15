@@ -168,7 +168,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/fish-cam/dev/1677940904673-2023-03-04T14:41:44.673Z/fish-cam.zip"
+          "S3Key": "serverless/fish-cam/dev/1678841556719-2023-03-15T00:52:36.719Z/fish-cam.zip"
         },
         "Handler": "index.endpoint",
         "Runtime": "python3.8",
@@ -186,14 +186,14 @@
         "FishDashcamDashapiDashcreateLogGroup"
       ]
     },
-    "FishDashcamDashapiDashcreateLambdaVersionzi8OIFi0MHfka7SmsexA5a2Bp1qoxP0Pjtw6B05eo": {
+    "FishDashcamDashapiDashcreateLambdaVersionFxYZU45e0IAOuwKvLBQHxHoR87oKqiJrwWUVN3xNo": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "FishDashcamDashapiDashcreateLambdaFunction"
         },
-        "CodeSha256": "4EZ0tcS+XbAhGu6VyzOAE22+hBvyCcaEJ/RLIXhDk5k="
+        "CodeSha256": "yuKcXS7Kzs/2pTDuJJ815dilk9Plo2vx5J2XJxqZA5g="
       }
     },
     "ApiGatewayRestApi": {
@@ -326,7 +326,7 @@
         "FishDashcamDashapiDashcreateLambdaPermissionApiGateway"
       ]
     },
-    "ApiGatewayDeployment1677940903404": {
+    "ApiGatewayDeployment1678841555441": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -389,7 +389,7 @@
     "FishDashcamDashapiDashcreateLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "FishDashcamDashapiDashcreateLambdaVersionzi8OIFi0MHfka7SmsexA5a2Bp1qoxP0Pjtw6B05eo"
+        "Ref": "FishDashcamDashapiDashcreateLambdaVersionFxYZU45e0IAOuwKvLBQHxHoR87oKqiJrwWUVN3xNo"
       },
       "Export": {
         "Name": "sls-fish-cam-dev-FishDashcamDashapiDashcreateLambdaFunctionQualifiedArn"
