@@ -34,7 +34,7 @@ def endpoint(event, context):
             "statusCode": 200,
             "headers": {
                 "Access-Control-Allow-Origin": "*",
-                "Content-Type": 'application/json',
+                "Content-Type": 'application/json'
             },
             "body": json.dumps(fish_cam_json),
             "isBase64Encoded": False
@@ -45,7 +45,7 @@ def endpoint(event, context):
             "statusCode": 500,
             "headers": {
                 "Access-Control-Allow-Origin": "*",
-                "Content-Type": 'application/json',
+                "Content-Type": 'application/json'
             },
             "body": json.dumps(e),
             "isBase64Encoded": False
